@@ -1,0 +1,11 @@
+{
+  "photo": "/header-logo-48.jpg",
+  "name": "吳文綺",
+  "title": "婦產科主任",
+  "current_position": "國軍花蓮總醫院 婦產科主任",
+  "experience": "專精婦產科領域，透過豐富的臨床經驗與專業訓練，為每位女性提供最完善的醫療服務。",
+  "certifications": [
+    { "name": "中華民國婦產科專科醫師" },
+    { "name": "台灣福爾摩莎婦女泌尿醫學會專科醫師" }
+  ]
+}

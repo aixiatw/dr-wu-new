@@ -1,0 +1,14 @@
+{
+  "title": "吳文綺醫師",
+  "logo": "/logo.png",
+  "doctor_photo": "/header-logo-48.jpg",
+  "doctor_name": "吳文綺",
+  "doctor_title": "婦產科主任醫師",
+  "doctor_bio": "專精婦產科領域，透過豐富的臨床經驗與專業訓練，為每位女性提供最完善的醫療服務。",
+  "services": [
+    { "name": "一般婦科", "description": "月經失調、子宮肌瘤、卵巢囊腫等" },
+    { "name": "產科照護", "description": "產檢諮詢、妊娠照護" },
+    { "name": "更年期諮詢", "description": "症狀緩解、生活調整建議" },
+    { "name": "婦女泌尿", "description": "尿失禁、骨盆器官脫垂" }
+  ]
+}
