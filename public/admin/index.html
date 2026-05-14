@@ -5,46 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>內容管理後台</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #F5E6D3; }
-    .login-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; max-width: 360px; width: 90%; }
-    h2 { color: #4A3728; margin-bottom: 24px; }
-    input { width: 100%; padding: 12px 16px; margin: 8px 0; border: 2px solid #E8D5C4; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
-    button { width: 100%; padding: 14px; background: #D4856A; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 16px; }
-    button:hover { background: #c06f54; }
-    .error { color: #e74c3c; margin-top: 12px; font-size: 14px; }
-  </style>
 </head>
 <body>
-  <div class="login-box" id="loginBox">
-    <h2>🔐 後台登入</h2>
-    <input type="text" id="username" placeholder="帳號" value="admin" readonly>
-    <input type="password" id="password" placeholder="密碼">
-    <button onclick="checkLogin()">登入</button>
-    <div class="error" id="error" style="display:none"></div>
-  </div>
-  <div id="cms" style="display:none"></div>
-
-  <script>
-    function checkLogin() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      const stored = btoa(user + ':' + pass);
-      if (pass === 'zxcvbnm168') {
-        document.getElementById('loginBox').style.display = 'none';
-        document.getElementById('cms').style.display = 'block';
-        document.getElementById('cms').innerHTML = '<div style="padding:40px;text-align:center;color:#4A3728;"><h2>載入中...</h2></div>';
-        loadCMS();
-      } else {
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('error').textContent = '密碼錯誤';
-      }
-    }
-    function loadCMS() {
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-      document.head.appendChild(script);
-    }
-  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
