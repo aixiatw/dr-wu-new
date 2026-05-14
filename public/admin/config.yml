@@ -19,7 +19,7 @@ collections:
           - { label: "Logo 圖片", name: "logo", widget: "image" }
           - { label: "醫師大頭照", name: "doctor_photo", widget: "image" }
           - { label: "醫師姓名", name: "doctor_name", widget: "string" }
-          { label: "醫師職稱", name: "doctor_title", widget: "string" }
+          - { label: "醫師職稱", name: "doctor_title", widget: "string" }
           - { label: "醫師簡介", name: "doctor_bio", widget: "markdown" }
           - label: "服務項目"
             name: "services"
@@ -36,7 +36,11 @@ collections:
           - { label: "職稱", name: "title", widget: "string" }
           - { label: "現職", name: "current_position", widget: "string" }
           - { label: "學經歷", name: "experience", widget: "markdown" }
-          - { label: "專科認證", name: "certifications", widget: "list", fields: [{ label: "認證名稱", name: "name", widget: "string" }] }
+          - label: "專科認證"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - { label: "認證名稱", name: "name", widget: "string" }
       - name: "contact"
         label: "聯絡方式"
         file: "src/content/settings/contact.json"
