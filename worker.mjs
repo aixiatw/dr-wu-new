@@ -1,7 +1,27 @@
-﻿export default {
+export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const { pathname, method } = url;
+
+    // 密碼保護：訪問 /admin/ 路徑需要驗證
+    if (pathname.startsWith('/admin')) {
+      const authHeader = request.headers.get('Authorization');
+      if (!authHeader) {
+        return new Response('Unauthorized', {
+          status: 401,
+          headers: {
+            'WWW-Authenticate': 'Basic realm="Protected Area"',
+          },
+        });
+      }
+      
+      const [scheme, credentials] = authHeader.split(' ');
+      if (scheme !== 'Basic' || credentials !== 'YWRtaW46RHdXdTIwMjU=') {
+        return new Response('Forbidden', {
+          status: 403,
+        });
+      }
+    }
 
     if (method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders() });
