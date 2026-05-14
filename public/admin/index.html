@@ -4,9 +4,119 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>內容管理後台</title>
+  <title>內容管理後台 - 登入</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 100%);
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    h2 {
+      color: #4A3728;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+    p {
+      color: #8B6F5C;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 10px 0;
+      border: 2px solid #E8D5C4;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #D4856A;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #D4856A;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #c06f54;
+    }
+    .error {
+      color: #e74c3c;
+      margin-top: 16px;
+      font-size: 14px;
+      display: none;
+    }
+    .hint {
+      color: #999;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div class="login-box">
+    <h2>🔐 後台登入</h2>
+    <p>請輸入帳號密碼以管理網站內容</p>
+    
+    <input type="text" id="email" placeholder="Email 帳號" autocomplete="username">
+    <input type="password" id="password" placeholder="密碼" autocomplete="current-password">
+    <button onclick="checkLogin()">登入</button>
+    <div class="error" id="error">帳號或密碼錯誤</div>
+    <div class="hint">測試帳號: admin / 密碼: zxcvbnm168</div>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const email = document.getElementById('email').value;
+      const pass = document.getElementById('password').value;
+      
+      // 簡單的 client-side 驗證
+      if (pass === 'zxcvbnm168' && (email === 'admin' || email === 'aixiatw@gmail.com' || email === 'chichi000406@yahoo.com.tw')) {
+        sessionStorage.setItem('cms_auth', 'true');
+        sessionStorage.setItem('cms_user', email);
+        document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F5E6D3;"><div style="text-align:center;color:#4A3728;"><h2>載入中...</h2><p>正在啟動 CMS 後台</p></div></div>';
+        loadCMS();
+      } else {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('password').value = '';
+      }
+    }
+    
+    function loadCMS() {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+      document.head.appendChild(script);
+    }
+    
+    // 檢查是否已登入
+    if (sessionStorage.getItem('cms_auth') === 'true') {
+      loadCMS();
+    }
+  </script>
 </body>
 </html>
