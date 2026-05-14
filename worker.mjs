@@ -16,7 +16,7 @@ export default {
       }
       
       const [scheme, credentials] = authHeader.split(' ');
-      if (scheme !== 'Basic' || credentials !== 'YWRtaW46RHdXdTIwMjU=') {
+      if (scheme !== 'Basic' || credentials !== 'YXp4Y3Zibm0xNjg6YXp4Y3Zibm0xNjg=') {
         return new Response('Forbidden', {
           status: 403,
         });
