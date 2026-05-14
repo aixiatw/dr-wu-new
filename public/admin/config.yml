@@ -3,6 +3,12 @@ backend:
   repo: aixiatw/dr-wu-new
   branch: main
   site_domain: dr-wu-new.aixiatw.workers.dev
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
 
 site_url: https://dr-wu-new.aixiatw.workers.dev
 display_url: https://dr-wu-new.aixiatw.workers.dev
