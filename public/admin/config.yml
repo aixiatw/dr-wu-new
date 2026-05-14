@@ -2,6 +2,11 @@ backend:
   name: github
   repo: aixiatw/dr-wu-new
   branch: main
+  site_domain: dr-wu-new.aixiatw.workers.dev
+
+site_url: https://dr-wu-new.aixiatw.workers.dev
+display_url: https://dr-wu-new.aixiatw.workers.dev
+logo_url: https://dr-wu-new.aixiatw.workers.dev/logo.png
 
 media_folder: src/assets/images
 public_folder: /src/assets/images

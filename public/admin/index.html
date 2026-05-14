@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>內容管理後台 - 登入</title>
+  <title>內容管理後台</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -26,7 +26,7 @@
       width: 100%;
       max-width: 360px;
     }
-    h2 { color: #4A3728; margin: 0 0 20px 0; font-size: 22px; }
+    h2 { color: #4A3728; margin: 0 0 20px 0; }
     p { color: #8B6F5C; margin: 0 0 20px 0; font-size: 14px; }
     input {
       width: 100%;
@@ -51,24 +51,22 @@
     }
     button:hover { background: #c06f54; }
     .error { color: #e74c3c; margin-top: 12px; font-size: 14px; display: none; }
-    .hint { color: #999; font-size: 12px; margin-top: 20px; }
   </style>
 </head>
 <body>
   <div class="login-box">
     <h2>🔐 後台登入</h2>
-    <p>輸入帳號密碼管理網站</p>
-    <input type="text" id="email" placeholder="帳號 (admin)" value="admin">
+    <p>輸入密碼進入 CMS</p>
     <input type="password" id="password" placeholder="密碼">
     <button onclick="checkLogin()">登入</button>
-    <div class="error" id="error">帳號或密碼錯誤</div>
+    <div class="error" id="error">密碼錯誤</div>
   </div>
 
   <script>
     function checkLogin() {
       var pass = document.getElementById('password').value;
       if (pass === 'zxcvbnm168') {
-        document.body.innerHTML = '<div style="text-align:center;padding:50px;color:#4A3728;"><h2>載入中...</h2></div>';
+        document.body.innerHTML = '<div style="text-align:center;padding:50px;color:#4A3728;"><h2>載入 CMS...</h2></div>';
         var script = document.createElement('script');
         script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
         document.head.appendChild(script);
